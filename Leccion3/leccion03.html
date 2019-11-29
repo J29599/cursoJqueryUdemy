@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Lección 03 - Eventos</title>
+
+    <!-- Importacion del jQuery -->
+    <script src="js/lib/jquery-2.1.4.min.js"></script>
+
+    <!-- Importacion del Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        .img100 {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .divRojo {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <h1>Lección 03: Eventos</h1>
+        <hr>
+        <button id="bot1" class="btn btn-primary">Evento Click</button>
+
+        <br>
+        <br>
+
+        <img src="img/profesor.jpg" alt="" class="img100">
+        <br>
+        <br>
+        <div class="divRojo">
+
+        </div>
+
+        <a id="linkUdemy" href="http://google.com">Google</a>
+    </div>
+
+    <script>
+        $("#bot1").on("click", function() {
+            console.log("CLick");
+        });
+
+        $(".img100").on("mouseenter", function() {
+            $(this).attr("src", "img/nophoto.jpg");
+        });
+
+        $(".img100").on("mouseleave", function() {
+            $(this).attr("src", "img/profesor.jpg");
+        });
+
+        $(".divRojo").on("click", function() {
+            console.log("Click div rojo");
+        });
+        $("#linkUdemy").on("click", function(event) {
+            event.preventDefault();
+            alert("Click");
+            window.location = $(this).attr("href");
+        })
+
+        $(document).ready(function() {
+            alert("La pag está lista");
+        });
+    </script>
+
+</body>
+
+</html>
