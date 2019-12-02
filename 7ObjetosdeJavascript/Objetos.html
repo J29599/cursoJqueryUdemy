@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Objetos 101</title>
+
+    <!-- Importacion del jQuery -->
+    <script src="js/lib/jquery-2.1.4.min.js"></script>
+
+    <!-- Importacion del Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+    <div class="container text-center">
+
+        <h1>Objetos 101: <small>Comprendiendo lo básico</small></h1>
+        <hr>
+
+        <button class="btn btn-primary" id="btnEncender">Encender</button>
+        <button class="btn btn-danger" id="btnApagar">Apagar</button>
+
+
+    </div>
+
+    <script>
+        var carro = {
+            encendido: false,
+            llantas: 4,
+            puertas: 5,
+            fabricante: {
+                creador: "Toyota",
+                telefono: "5555-5555",
+                direccion: "XYZ Avenida 123"
+            },
+            colores: ["Azul", "Blanco", "Rojo", "Negro"],
+
+            arrancar: function() {
+                this.encendido ? console.log("El vehículo estaba encendido") : console.log("Encendiendo motor");
+                this.encendido = true;
+            },
+
+            apagar: function() {
+                !this.encendido ? console.log("El vehículo estaba apagado") : console.log("Apagando motor");
+                this.encendido = false;
+            }
+        };
+
+        // var fab = carro.fabricante;
+
+        // console.log(fab.direccion);
+        // fab.direccion = "ABC Avenida 321";
+        // console.log(fab.direccion);
+        // console.log(carro.fabricante);
+
+        // carro.arrancar();
+        // carro.arrancar();
+        // carro.apagar();
+        // carro.apagar();
+
+        (function() {
+            $("#btnEncender").on("click", function() {
+                carro.arrancar();
+            });
+
+            $("#btnApagar").on("click", function() {
+                carro.apagar();
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
